@@ -10,8 +10,6 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.layers import Bidirectional
 from tensorflow.keras.models import Sequential
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics import mean_squared_error, r2_score
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 
 st.write("""
@@ -63,11 +61,10 @@ for i in close :
 
 for i in range(20) :
   x_input = np.array(in_seq[-100:])
-  x_input = x_input.reshape((-1,1))
+  x_input = x_input.reshape((1, n_steps, n_features))
   yhat = model.predict(x_input, verbose=0)
   in_seq.append(yhat[0][0])
-scaler=MinMaxScaler(feature_range=(0,1))
-yhat=scaler.inverse_transform(yhat)
+
 norm_res = in_seq[-20:]
 res = []
 for i in norm_res :
@@ -87,4 +84,3 @@ plt.legend()
 plt.grid()
 
 st.pyplot(plt)
-
