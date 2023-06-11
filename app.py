@@ -11,6 +11,8 @@ from keras.layers import Dense
 from keras.layers import Bidirectional
 from tensorflow.keras.models import Sequential
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 
 st.write("""
