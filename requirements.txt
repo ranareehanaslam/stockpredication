@@ -5,3 +5,4 @@ pandas==1.4.3
 streamlit==1.12.0
 yfinance==0.1.74
 tensorflow
+scikit-learn
