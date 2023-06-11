@@ -87,7 +87,8 @@ st.pyplot(plt)
 
 
 import numpy as np
-
+scaler=MinMaxScaler(feature_range=(0,1))
+df1=scaler.fit_transform(np.array(close).reshape(-1,1))
 x_input = df1[len(df1)-100:].reshape(1, -1)
 x_input = x_input.reshape((1, 100, 1))
 
