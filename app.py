@@ -1,39 +1,4 @@
-Hugging Face's logo
-Hugging Face
-Search models, datasets, users...
-Models
-Datasets
-Spaces
-Docs
-Solutions
-Pricing
 
-
-
-Spaces:
-
-maisarah1109
-/
-stock-prediction 
-like
-2
-App
-Files
-Community
-stock-prediction
-/
-app.py
-Maisarah Nurain
-Add application file
-b17f43c
-7 months ago
-raw
-history
-blame
-contribute
-delete
-No virus
-2.15 kB
 import yfinance as yf
 import streamlit as st
 import pandas as pd
