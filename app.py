@@ -66,6 +66,7 @@ for i in range(20) :
   x_input = x_input.reshape((-1,1))
   yhat = model.predict(x_input, verbose=0)
   in_seq.append(yhat[0][0])
+scaler=MinMaxScaler(feature_range=(0,1))
 yhat=scaler.inverse_transform(yhat)
 norm_res = in_seq[-20:]
 res = []
