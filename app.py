@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import LSTM
 from keras.layers import Dense
+from sklearn.preprocessing import MinMaxScaler
 from keras.layers import Bidirectional
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
