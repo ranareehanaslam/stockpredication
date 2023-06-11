@@ -74,10 +74,14 @@ Shown are the stock prediction for next 20 days.
 n_steps = 100
 n_features = 1
 
-model = Sequential()
-model.add(Bidirectional(LSTM(300, activation='relu'), input_shape=(n_steps, n_features)))
+model=Sequential()
+model.add(LSTM(50, activation='relu', return_sequences=True, input_shape=(n_steps, n_features)))
+model.add(Dropout(0.2))
+model.add(LSTM(50,return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(50))
 model.add(Dense(1))
-model.compile(optimizer='adam', loss='mse')
+model.compile(loss='mean_squared_error',optimizer='adam', metrics=['mean_squared_error'])
 
 model.load_weights(stock_symbol +".KA"+ ".h5")
 df = input_df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
