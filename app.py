@@ -55,8 +55,6 @@ df = input_df.dropna(axis=0, how='any', subset=None, inplace=False)
 df = df[df.Volume > 0]
 
 close = df['Close'][-n_steps:].to_list()
-scaler=MinMaxScaler(feature_range=(0,1))
-close=scaler.fit_transform(np.array(close).reshape(-1,1))
 min_in = min(close)
 max_in = max(close)
 in_seq = []
@@ -65,7 +63,7 @@ for i in close :
 
 for i in range(20) :
   x_input = np.array(in_seq[-100:])
-  x_input = x_input.reshape((1, n_steps, n_features))
+  x_input = x_input.reshape((-1,1))
   yhat = model.predict(x_input, verbose=0)
   in_seq.append(yhat[0][0])
 yhat=scaler.inverse_transform(yhat)
