@@ -84,3 +84,31 @@ plt.legend()
 plt.grid()
 
 st.pyplot(plt)
+
+
+import numpy as np
+
+x_input = df1[len(df1)-100:].reshape(1, -1)
+x_input = x_input.reshape((1, 100, 1))
+
+predictions = []
+
+for _ in range(7):
+    y_predict = model.predict(x_input, verbose=0)
+    next_day_value = scaler.inverse_transform(y_predict)
+    predictions.append(next_day_value[0, 0])  # Assuming you want the first value in the prediction
+    
+    # Update x_input for the next iteration
+    x_input = np.concatenate((x_input[:, 1:, :], y_predict.reshape(1, 1, 1)), axis=1)
+plt.figure(figsize = (20,10))
+plt.plot(predictions, label="Prediction")
+plt.plot(close[-80:], label="Previous")
+plt.ylabel('Price (Rp)', fontsize = 15 )
+plt.xlabel('Days', fontsize = 15 )
+plt.title(stock_symbol + " Stock Prediction", fontsize = 20)
+plt.legend()
+plt.grid()
+# Print the predictions for the next 7 days
+for i, prediction in enumerate(predictions):
+    print(f"Day {i+1}: {prediction}")
+
