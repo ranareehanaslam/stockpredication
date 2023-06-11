@@ -18,11 +18,11 @@ Shown are the stock **closing price** and **volume**.
 """)
 
 def user_input_features() :
-    stock_symbol = st.sidebar.selectbox('Symbol',('NATF_KA', 'COLG_KA'))
+    stock_symbol = st.sidebar.selectbox('Symbol',('NATF', 'COLG'))
     date_start = st.sidebar.date_input("Start Date", datetime.date(2015, 5, 31))
     date_end = st.sidebar.date_input("End Date", datetime.date.today())
 
-    tickerData = yf.Ticker(stock_symbol+'.JK')
+    tickerData = yf.Ticker(stock_symbol+'.KA')
     tickerDf = tickerData.history(period='1d', start=date_start, end=date_end)
     return tickerDf, stock_symbol
 
@@ -45,7 +45,7 @@ model.add(Bidirectional(LSTM(300, activation='relu'), input_shape=(n_steps, n_fe
 model.add(Dense(1))
 model.compile(optimizer='adam', loss='mse')
 
-model.load_weights(stock_symbol + ".h5")
+model.load_weights(stock_symbol +".KA"+ ".h5")
 df = input_df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
 df = df[df.Volume > 0]
 
