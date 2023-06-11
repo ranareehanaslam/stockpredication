@@ -10,6 +10,7 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.layers import Bidirectional
 from tensorflow.keras.models import Sequential
+from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 
 st.write("""
