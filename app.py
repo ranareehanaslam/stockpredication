@@ -113,4 +113,4 @@ plt.grid()
 # Print the predictions for the next 7 days
 for i, prediction in enumerate(predictions):
     print(f"Day {i+1}: {prediction}")
-
+st.pyplot(plt)
