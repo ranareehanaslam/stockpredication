@@ -32,7 +32,7 @@ st.line_chart(input_df.Close)
 st.line_chart(input_df.Volume)
 
 st.write("""
-# Stock Price Prediction
+# Stock Price Prediction By AbuBakkar Bhai Kamran Best Friend 🤣😀
 Shown are the stock prediction for next 20 days.
 """)
 
@@ -49,7 +49,7 @@ model.add(Dense(1))
 model.compile(loss='mean_squared_error',optimizer='adam', metrics=['mean_squared_error'])
 
 model.load_weights(stock_symbol +".KA"+ ".h5")
-df = input_df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
+df = input_df.dropna(axis=0, how='any', subset=None, inplace=False)
 df = df[df.Volume > 0]
 
 close = df['Close'][-n_steps:].to_list()
