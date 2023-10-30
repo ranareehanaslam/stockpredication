@@ -11,7 +11,6 @@ pinned: false
 
 # Stock Price Prediction and Analysis
 
-![Stock Price Prediction](https://example.com/stock-price-prediction-screenshot.png)
 
 Welcome to the Stock Price Prediction and Analysis project. This project is designed to help you explore historical stock prices, view stock trends, and predict future stock prices. It utilizes machine learning techniques to make stock price predictions based on historical data. This README provides an overview of the project and its key functionalities.
 
